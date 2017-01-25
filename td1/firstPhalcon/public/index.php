@@ -1,5 +1,5 @@
 <?php
- 
+ //http://127.0.0.1/phalcon-tds-FONTAINE/td1/firstPhalcon/
 try {
  
     //Enregistrement d'un autoloader pour premettre l'inclusion auto des fichiers de classe
@@ -11,6 +11,16 @@ try {
  
     //DI est le service responsable de l'injection de dépendance des services Phalcon utilisés
     $di = new Phalcon\DI\FactoryDefault();
+
+    //Configuration du service database
+    $di->set('db', function(){
+        return new \Phalcon\Db\Adapter\Pdo\Mysql(array(
+            "host" => "localhost",
+            "username" => "root",
+            "password" => "",
+            "dbname" => "firstPhalconDb"
+        ));
+    });
  
     //Configuration des vues
     $di->set('view', function(){
