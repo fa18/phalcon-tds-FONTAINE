@@ -9,3 +9,12 @@
 <button class="ui button">
   Follow
 </button>
+
+<p>Affichage des utilisateurs</p>
+
+<ul>
+	{% for usuer in users %}
+		<li>{{user.getLogin()}}</li>
+	{% endfor %}
+
+</ul>

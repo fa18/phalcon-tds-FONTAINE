@@ -9,3 +9,12 @@
 <button class="ui button">
   Follow
 </button>
+
+<p>Affichage des utilisateurs</p>
+
+<ul>
+	<?php foreach ($users as $usuer) { ?>
+		<li><?= $user->getLogin() ?></li>
+	<?php } ?>
+
+</ul>
