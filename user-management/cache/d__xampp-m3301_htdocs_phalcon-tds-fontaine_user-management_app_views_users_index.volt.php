@@ -1,12 +1,10 @@
 <!--Affiche la liste des utilisateurs-->
 <div class="ui container">
 </br>
-<a href="http://localhost/phalcon-tds-FONTAINE/user-management/users/form">
-<button class="ui primary button">
+<?= $this->tag->linkTo(['users/form', '
+<button class=\'ui primary button\'>
   Ajouter un nouvel utilisateur
-</button>
-</a>
-
+</button>']) ?>
 Rechercher : <div class="ui transparent left icon input">
   <input type="text" placeholder="Search...">
   <i class="search icon"></i>
