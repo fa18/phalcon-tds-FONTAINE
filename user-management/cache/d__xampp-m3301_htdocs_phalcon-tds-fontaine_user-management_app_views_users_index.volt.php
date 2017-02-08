@@ -1,6 +1,16 @@
 <!--Affiche la liste des utilisateurs-->
+<div class="ui container">
+</br>
+<a href="">
+<button class="ui primary button">
+  Ajouter un nouvel utilisateur
+</button>
+</a>
 
-<p>Affichage des utilisateurs</p>
+Rechercher : <div class="ui transparent left icon input">
+  <input type="text" placeholder="Search...">
+  <i class="search icon"></i>
+</div>
 
 
 <table class="ui inverted table">
@@ -21,8 +31,14 @@
       <td><?= $user->getFirstname() ?></td>
       <td><?= $user->getLastname() ?></td>
       <td><?= $user->getEmail() ?></td>
-      <td><?= $user->getIdrole() ?></td>
-      
+      <td><?= $user->getRole()->getName() ?></td>
+      <td>
+      <div class="ui buttons">
+  	  <button class="ui button">Modifier</button>
+  	  <div class="or" data-text="ou"></div>
+  	  <button class="ui positive button">Supprimer</button>
+	  </div>
+      </td>
     </tr>
    <?php } ?>
   </tbody>
@@ -43,6 +59,4 @@
     </th>
   </tr></tfoot>
 </table>
-
-
-
+</div>

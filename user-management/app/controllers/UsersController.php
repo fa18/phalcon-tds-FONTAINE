@@ -4,13 +4,16 @@ class UsersController extends ControllerBase
 {
 
 	//Liste par défaut des utilisateurs, triés suivant sField dans l'ordre sens, en utilisant le filtre filter
-    public function indexAction()
+    public function indexAction($page=1,$sField="firstname",$sens="asc",$filter=NULL)
     {
-    	$users=User::find();
+
+    	$users=User::query()
+    		->orderBy($sField." ".$sens)
+    		->execute();
     	$this->view->setVar("users",$users);
     }
 
-   // indexAction(sField="firstname",sens="asc",filter=NULL)
+   
 
 	//Formulaire de saisie/modification d'un utilisateur, id est la clé primaire de l'utilisateur à modifier
 	public function formAction($id=NULL){
