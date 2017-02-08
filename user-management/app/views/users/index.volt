@@ -13,20 +13,27 @@
 
 <table class="ui inverted table">
   <thead>
-    <tr><th><div class="ui checkbox "> <input type="checkbox" name="check"></div></th>
-    <th>Id</th>
-    <th>Login</th>
-    <th>Prénom</th>
-    <th>Nom</th>
-    <th>Email</th>
-    <th>Role</th>
+    <tr><th><div class="ui checkbox "> <input type="checkbox" name="check"><label></label></div></th>
+    {% for colonne in tabColonnes %}
+      {% if champActuel == colonne %}
+        {% if sensTri == "asc" %}
+          <th class="sorted ascending" onclick="window.location.href='{{ href }}/{{colonne}}/desc'"/>
+          {% else %}
+            <th class="sorted descending" onclick="window.location.href='{{ href }}'"/>
+          {% endif %}
+        {% else %}
+          <th onclick="window.location.href='{{ href }}/{{colonne}}/asc'"/>
+        {% endif %}
+        {{colonne}}</th>
+    {% endfor %}
+
     <th>Action</th>
     </tr>
   </thead>
   <tbody>
     {% for user in users %}
     <tr>
-      <td><div class="ui checkbox "> <input type="checkbox" name="check"></div></td>
+      <td><div class="ui checkbox "> <input type="checkbox" name="check"><label></label></div></td>
       <td>{{user.getId()}}</td>
       <td>{{user.getLogin()}}</td>
       <td>{{user.getFirstname()}}</td>

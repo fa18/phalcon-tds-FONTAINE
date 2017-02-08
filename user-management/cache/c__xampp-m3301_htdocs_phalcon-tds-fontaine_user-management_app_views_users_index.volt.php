@@ -13,20 +13,27 @@
 
 <table class="ui inverted table">
   <thead>
-    <tr><th><div class="ui checkbox "> <input type="checkbox" name="check"></div></th>
-    <th>Id</th>
-    <th>Login</th>
-    <th>Prénom</th>
-    <th>Nom</th>
-    <th>Email</th>
-    <th>Role</th>
+    <tr><th><div class="ui checkbox "> <input type="checkbox" name="check"><label></label></div></th>
+    <?php foreach ($tabColonnes as $colonne) { ?>
+      <?php if ($champActuel == $colonne) { ?>
+        <?php if ($sensTri == 'asc') { ?>
+          <th class="sorted ascending" onclick="window.location.href='<?= $href ?>/<?= $colonne ?>/desc'"/>
+          <?php } else { ?>
+            <th class="sorted descending" onclick="window.location.href='<?= $href ?>'"/>
+          <?php } ?>
+        <?php } else { ?>
+          <th onclick="window.location.href='<?= $href ?>/<?= $colonne ?>/asc'"/>
+        <?php } ?>
+        <?= $colonne ?></th>
+    <?php } ?>
+
     <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <?php foreach ($users as $user) { ?>
     <tr>
-      <td><div class="ui checkbox "> <input type="checkbox" name="check"></div></td>
+      <td><div class="ui checkbox "> <input type="checkbox" name="check"><label></label></div></td>
       <td><?= $user->getId() ?></td>
       <td><?= $user->getLogin() ?></td>
       <td><?= $user->getFirstname() ?></td>

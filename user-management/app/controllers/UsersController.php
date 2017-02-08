@@ -11,6 +11,11 @@ class UsersController extends ControllerBase
     		->orderBy($sField." ".$sens)
     		->execute();
     	$this->view->setVar("users",$users);
+    	$this->view->setVar("champActuel",$sField);
+    	$this->view->setVar("sensTri",$sens);
+
+    	 $this->view->setVar("tabColonnes",["id","login","firstname","lastname","email","idrole"]);
+    	 $this->view->setVar("href","http://localhost/phalcon-tds-FONTAINE/user-management/users/index/1");
     }
 
    
