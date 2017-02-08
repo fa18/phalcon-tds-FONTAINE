@@ -2,8 +2,8 @@
 </br>
 	<div class="ui container">
 	<div>
-	{{link_to("users/index","
-	<i class='reply icon'> </i>Retour à la liste des utilisateurs")}}
+	<?= $this->tag->linkTo(['users/index', '
+	<i class=\'reply icon\'> </i>Retour à la liste des utilisateurs']) ?>
 	</br><i class="info icon"></i>
 </div>
 <form method="post">

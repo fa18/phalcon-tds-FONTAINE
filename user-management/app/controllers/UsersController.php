@@ -26,7 +26,7 @@ class UsersController extends ControllerBase
 	}
 
 	//Supprime l'utilisateur dont l'id est passé en paramètre
-	public function deleteAction($id){
+	public function deleteAction(){
 
 	}
 

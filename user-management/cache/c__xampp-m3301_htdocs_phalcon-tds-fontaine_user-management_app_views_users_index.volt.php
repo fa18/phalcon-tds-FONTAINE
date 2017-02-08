@@ -1,10 +1,10 @@
 <!--Affiche la liste des utilisateurs-->
 <div class="ui container">
 </br>
-{{link_to("users/form","
-<button class='ui primary button' >
- <i class='add user icon yellow' ></i> Ajouter un nouvel utilisateur
-</button>")}}
+<?= $this->tag->linkTo(['users/form', '
+<button class=\'ui primary button\' >
+ <i class=\'add user icon yellow\' ></i> Ajouter un nouvel utilisateur
+</button>']) ?>
 <div class="ui transparent left icon input">
   <input type="text" placeholder="Search...">
   <i class="search icon"></i>
@@ -24,21 +24,21 @@
     </tr>
   </thead>
   <tbody>
-    {% for user in users %}
+    <?php foreach ($users as $user) { ?>
     <tr>
       <td><div class="ui checkbox "> <input type="checkbox" name="check"></div></td>
-      <td>{{user.getId()}}</td>
-      <td>{{user.getLogin()}}</td>
-      <td>{{user.getFirstname()}}</td>
-      <td>{{user.getLastname()}}</td>
-      <td>{{user.getEmail()}}</td>
-      <td>{{user.getRole().getName()}}</td>
+      <td><?= $user->getId() ?></td>
+      <td><?= $user->getLogin() ?></td>
+      <td><?= $user->getFirstname() ?></td>
+      <td><?= $user->getLastname() ?></td>
+      <td><?= $user->getEmail() ?></td>
+      <td><?= $user->getRole()->getName() ?></td>
       <td>
-        {{linkTo("users/form/update", "<i class='write icon'></i>")}}
-        {{linkTo("users/form/delete", "<i class='erase icon red'></i>")}}
+        <?= $this->tag->linkto('users/form/update', '<i class=\'write icon\'></i>') ?>
+        <?= $this->tag->linkto('users/form/delete', '<i class=\'erase icon red\'></i>') ?>
       </td>
     </tr>
-   {% endfor %}
+   <?php } ?>
   </tbody>
   <tfoot>
     <tr><th colspan="8">
