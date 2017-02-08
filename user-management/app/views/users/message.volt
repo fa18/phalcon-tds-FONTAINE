@@ -1,0 +1,1 @@
+<!-- Affiche le message post mise à jour d'un utilisateur (ajout/modification/suppression) -->
