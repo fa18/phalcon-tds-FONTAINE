@@ -7,6 +7,7 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Phalcon PHP Framework</title>
         <link rel="stylesheet" href="http://localhost/phalcon-tds-FONTAINE/user-management/public/css/semantic.min.css">
+        {{ stylesheet_link("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css") }}
     </head>
     <body>
         <div class="container">

@@ -1,7 +1,7 @@
 <!--Affiche la liste des utilisateurs-->
 <div class="ui container">
 </br>
-<a href="">
+<a href="http://localhost/phalcon-tds-FONTAINE/user-management/users/form">
 <button class="ui primary button">
   Ajouter un nouvel utilisateur
 </button>
