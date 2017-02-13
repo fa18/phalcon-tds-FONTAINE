@@ -23,6 +23,9 @@ class UsersController extends ControllerBase
 	//Formulaire de saisie/modification d'un utilisateur, id est la clé primaire de l'utilisateur à modifier
 	public function formAction($id=NULL){
 
+		$this->view->setVar("ListeDesRoles", Role::find());
+		
+
 	}
 
 	//Met à jour l'utilisateur posté dans la base de données, puis affiche un message

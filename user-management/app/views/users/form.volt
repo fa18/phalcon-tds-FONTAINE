@@ -24,25 +24,25 @@
             <div class="fields">
                 <div class="field required">
                     <label>Login</label>
-                    <input name="login" placeholder="Login" type="text">
+                    <input name="login" placeholder="Login" type="text" required>
                 </div>
                 <div class="field required">
                     <label>Mot de passe</label>
-                    <input name="password" placeholder="Email" type="password">
+                    <input name="password" placeholder="Email" type="password" required>
                 </div>
             </div>
             <div class="fields">
                 <div class="field required">
                     <label>Email</label>
-                    <input name="email" placeholder="Email" type="email">
+                    <input name="email" placeholder="Email" type="email" required>
                 </div>
             </div>
             <div class="fields">
                 <div class="field">
                     <label>Role</label>
                     <select name="idrole" class="ui search dropdown">
-                        {% for role in roles %}
-                        <option value="{{role.id}}">{{role.name}}</option>
+                        {% for role in ListeDesRoles %}
+                        <option value="{{role.id}}" selected>{{role.name}}</option>
                         {% endfor %}
                     </select>
                 </div>
