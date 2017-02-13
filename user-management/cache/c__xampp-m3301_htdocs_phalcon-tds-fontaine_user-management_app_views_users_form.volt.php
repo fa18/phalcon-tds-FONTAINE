@@ -6,52 +6,51 @@
 	<i class=\'reply icon\'> </i>Retour à la liste des utilisateurs']) ?>
 	</br><i class="info icon"></i>
 </div>
-<form method="post">
+
 	
 
-	<div class="ui form">
-	  <div class="three fields">
-	    <div class="field">
-	      <label>Prénom</label>
-	      <input type="text" placeholder="">
-	    </div>
-	    <div class="field">
-	      <label>Nom</label>
-	      <input type="text" placeholder="">
-	    </div>
-		</br>
-	  </div>
-	</div>
-
-	<div class="ui form">
-	  <div class="three fields">
-	    <div class="field">
-	      <label>Login</label>
-	      <input type="text" placeholder="Nom" required>
-	    </div>
-	    <div class="field">
-	      <label>Mot de passe</label>
-	      <input type="password" required >
-	    </div>
-	    <div class="field">
-	      <label>Email</label>
-	      <input type="text" required >
-	    </div>
-	  </div>
-	</div>
-
-
-	<div >
-		<label>Role</label> 
-		<select class="ui compact selection dropdown">
-	    <option value="superadmin">superadmin</option>
-	    <option value="admin">admin</option>
-	    <option selected="selected" value="user">user</option>
-	  	</select>
-  	</div></br>
-
-	<button class="positive ui button">Valider</button>
-	<button class="ui toggle button">Rénitialiser</button>
-
-	</div>
-</form>
+	<div class="ui equal width form">
+        <form method="post">
+            <div class="fields">
+                <div class="field">
+                    <label>Prénom</label>
+                    <input name="firstname" placeholder="First Name" type="text">
+                </div>
+                <div class="field">
+                    <label>Nom</label>
+                    <input name="lastname" placeholder="Last Name" type="text">
+                </div>
+            </div>
+            <div class="fields">
+                <div class="field required">
+                    <label>Login</label>
+                    <input name="login" placeholder="Login" type="text">
+                </div>
+                <div class="field required">
+                    <label>Mot de passe</label>
+                    <input name="password" placeholder="Email" type="password">
+                </div>
+            </div>
+            <div class="fields">
+                <div class="field required">
+                    <label>Email</label>
+                    <input name="email" placeholder="Email" type="email">
+                </div>
+            </div>
+            <div class="fields">
+                <div class="field">
+                    <label>Role</label>
+                    <select name="idrole" class="ui search dropdown">
+                        <?php foreach ($roles as $role) { ?>
+                        <option value="<?= $role->id ?>"><?= $role->name ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+            <div class="fields">
+                <input class="fluid positive ui button" type="submit" value="Ajouter">
+                <input class="fluid ui button" type="reset" value="Réinitialiser">
+            </div>
+        </form>
+    </div>
+</div>
