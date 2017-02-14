@@ -1,4 +1,8 @@
 <!--Affiche la liste des utilisateurs-->
+   {% if contenuMsg is defined %}
+    <div class="ui green message">{{contenuMsg}}</div>
+    {% endif %}
+
 <div class="ui container">
 </br>
 {{link_to("users/form/update","

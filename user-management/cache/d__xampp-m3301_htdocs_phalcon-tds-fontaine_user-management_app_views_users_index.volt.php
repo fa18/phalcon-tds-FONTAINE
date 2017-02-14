@@ -1,4 +1,8 @@
 <!--Affiche la liste des utilisateurs-->
+   <?php if (isset($contenuMsg)) { ?>
+    <div class="ui green message"><?= $contenuMsg ?></div>
+    <?php } ?>
+
 <div class="ui container">
 </br>
 <?= $this->tag->linkTo(['users/form/update', '

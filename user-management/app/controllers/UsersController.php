@@ -32,7 +32,7 @@ class UsersController extends ControllerBase
 	public function updateAction($id=NULL){
 
 
-		if(isset($_POST["firstname"], $_POST['lastname'], $_POST['login'], $_POST['email'], $_POST['idrole'])) {
+		if(isset($_POST['login'], $_POST['email'], $_POST['idrole'])) {
             $user = new User();
             $user->setFirstname($_POST["firstname"]);
             $user->setLastname($_POST["lastname"]);
@@ -40,7 +40,10 @@ class UsersController extends ControllerBase
             $user->setEmail($_POST["email"]);
             $user->setPassword($_POST["password"]);
             $user->setIdrole($_POST["idrole"]);
-    		$user->save();
+    		if($user->save()==true){
+    			$this->view->setVar("contenuMsg", "Utilisateur ajouté");
+    		}
+    		else $this->view->setVar("contenuMsg", "erreur");
 
     		//$this->view->setVar("contenuMsg", "Utilisateur ajouté");
         }
