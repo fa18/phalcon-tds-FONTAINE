@@ -9,7 +9,7 @@
 
 <div class="ui container">
 </br>
-{{link_to("users/form/update","
+{{link_to("users/form/","
 <button class='ui primary button' >
  <i class='add user icon yellow' ></i> Ajouter un nouvel utilisateur
 </button>")}}
@@ -49,8 +49,8 @@
       <td>{{user.getEmail()}}</td>
       <td>{{user.getRole().getName()}}</td>
       <td>
-        {{linkTo("users/form/update", "<i class='write icon'></i>")}}
-        {{linkTo("users/form/delete", "<i class='erase icon red'></i>")}}
+        {{linkTo("users/form/"~user.getId(), "<i class='write icon'></i>")}} 
+        {{linkTo("users/"~user.getId(), "<i class='erase icon red'></i>")}}
       </td>
     </tr>
    {% endfor %}

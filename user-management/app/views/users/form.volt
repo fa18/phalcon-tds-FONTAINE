@@ -14,11 +14,11 @@
             <div class="fields">
                 <div class="field">
                     <label>Prénom</label>
-                    <input name="firstname" placeholder="First Name" type="text">
+                    <input name="firstname" placeholder="First Name" type="text" value="{{user.getFirstname()}}">
                 </div>
                 <div class="field">
                     <label>Nom</label>
-                    <input name="lastname" placeholder="Last Name" type="text">
+                    <input name="lastname" placeholder="Last Name" type="text" value="{{user.getLastname()}}">
                 </div>
             </div>
             <div class="fields">
@@ -28,13 +28,13 @@
                 </div>
                 <div class="field required">
                     <label>Mot de passe</label>
-                    <input name="password" placeholder="Email" type="password" required>
+                    <input name="password"  type="password" required >
                 </div>
             </div>
             <div class="fields">
                 <div class="field required">
                     <label>Email</label>
-                    <input name="email" placeholder="Email" type="email" required>
+                    <input name="email" placeholder="Email" type="email" required value="{{user.getEmail()}}">
                 </div>
             </div>
             <div class="fields">

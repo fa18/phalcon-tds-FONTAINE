@@ -24,6 +24,15 @@ class UsersController extends ControllerBase
 	public function formAction($id=NULL){
 
 		$this->view->setVar("ListeDesRoles", Role::find());
+
+		if($id==NULL){
+			$user = new User();
+		}
+		else{
+			$user = User::findFirst($id);
+		}	
+		$this->view->setVar("user", $user);
+
 	
 
 	}
@@ -31,30 +40,46 @@ class UsersController extends ControllerBase
 	//Met à jour l'utilisateur posté dans la base de données, puis affiche un message
 	public function updateAction($id=NULL){
 
+		if($id==NULL){ //ajout
+			if(isset($_POST['login'], $_POST['email'], $_POST['idrole'])) {
+	            $user = new User();
+	            $user->setFirstname($_POST["firstname"]);
+	            $user->setLastname($_POST["lastname"]);
+	            $user->setLogin($_POST["login"]);
+	            $user->setEmail($_POST["email"]);
+	            $user->setPassword($_POST["password"]);
+	            $user->setIdrole($_POST["idrole"]);
+	    		if($user->save()){
+	    			$this->view->setVar("successUserAdd", "Utilisateur ajouté");
+	    		}
+	    		else{
+	    			$msg = "Problème d'enregistrement \n";
+	                foreach ($user->getMessages() as $message) { //message d'erreur
+	                    $msg .= $message . "\n";
+	                }
+	                $this->view->setVar("erreurUserAdd", $msg);
 
-		if(isset($_POST['login'], $_POST['email'], $_POST['idrole'])) {
-            $user = new User();
-            $user->setFirstname($_POST["firstname"]);
-            $user->setLastname($_POST["lastname"]);
-            $user->setLogin($_POST["login"]);
-            $user->setEmail($_POST["email"]);
-            $user->setPassword($_POST["password"]);
-            $user->setIdrole($_POST["idrole"]);
-    		if($user->save()==true){
-    			$this->view->setVar("successUserAdd", "Utilisateur ajouté");
+	    		}
+
+	    		//$this->view->setVar("contenuMsg", "Utilisateur ajouté");
+	        }
+	        $this->dispatcher->forward(["controller"=>"users","action"=>"index"]);
+
+    	}else{ // modification
+    		if(isset($_POST['login'], $_POST['email'], $_POST['idrole'])) {
+	    		$user = User::find(["id = :id:","bind" => ["id" => $id]]);
+
+	    		$user->setId($user.getId());
+	            $user->setFirstname($_POST["firstname"]);
+	            $user->setLastname($_POST["lastname"]);
+	            $user->setLogin($_POST["login"]);
+	            $user->setEmail($_POST["email"]);
+	            $user->setPassword($_POST["password"]);
+	            $user->setIdrole($_POST["idrole"]);
+	    		$user->update();
+	    		$this->dispatcher->forward(["controller"=>"users","action"=>"index"]);
     		}
-    		else{
-    			$msg = "Problème d'enregistrement \n";
-                foreach ($user->getMessages() as $message) {
-                    $msg .= $message . "\n";
-                }
-                $this->view->setVar("erreurUserAdd", $msg);
-
-    		}
-
-    		//$this->view->setVar("contenuMsg", "Utilisateur ajouté");
-        }
-        $this->dispatcher->forward(["controller"=>"users","action"=>"index"]);
+    	}
 
 
 	}
