@@ -42,7 +42,7 @@
                     <label>Role</label>
                     <select name="idrole" class="ui search dropdown">
                         <?php foreach ($ListeDesRoles as $role) { ?>
-                        <option value="<?= $user->getIdRole() ?>" selected><?= $role->name ?></option>
+                        <option value="1" selected><?= $role->name ?></option>
                         <?php } ?>
                     </select>
                 </div>

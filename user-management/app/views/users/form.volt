@@ -42,7 +42,7 @@
                     <label>Role</label>
                     <select name="idrole" class="ui search dropdown">
                         {% for role in ListeDesRoles %}
-                        <option value="{{user.getIdrole()}}" selected>{{role.name}}</option>
+                        <option value="1" selected>{{role.name}}</option>
                         {% endfor %}
                     </select>
                 </div>
