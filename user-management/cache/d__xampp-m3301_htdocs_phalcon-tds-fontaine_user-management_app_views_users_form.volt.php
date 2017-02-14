@@ -24,11 +24,11 @@
             <div class="fields">
                 <div class="field required">
                     <label>Login</label>
-                    <input name="login" placeholder="Login" type="text" required>
+                    <input name="login" placeholder="Login" type="text" required value="<?= $user->getLogin() ?>">
                 </div>
                 <div class="field required">
                     <label>Mot de passe</label>
-                    <input name="password"  type="password" required >
+                    <input name="password"  type="password" required value="<?= $user->getPassword() ?>">
                 </div>
             </div>
             <div class="fields">
@@ -42,7 +42,7 @@
                     <label>Role</label>
                     <select name="idrole" class="ui search dropdown">
                         <?php foreach ($ListeDesRoles as $role) { ?>
-                        <option value="<?= $role->id ?>" selected><?= $role->name ?></option>
+                        <option value="<?= $user->getIdRole() ?>" selected><?= $role->name ?></option>
                         <?php } ?>
                     </select>
                 </div>
