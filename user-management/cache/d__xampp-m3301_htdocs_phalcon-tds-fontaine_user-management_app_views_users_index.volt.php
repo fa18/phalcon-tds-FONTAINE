@@ -1,6 +1,10 @@
 <!--Affiche la liste des utilisateurs-->
-   <?php if (isset($contenuMsg)) { ?>
-    <div class="ui green message"><?= $contenuMsg ?></div>
+   <?php if (isset($successUserAdd)) { ?>
+    <div class="ui green message"><?= $successUserAdd ?></div>
+    <?php } ?>
+
+    <?php if (isset($erreurUserAdd)) { ?>
+    <div class="ui red message"><?= $erreurUserAdd ?></div>
     <?php } ?>
 
 <div class="ui container">

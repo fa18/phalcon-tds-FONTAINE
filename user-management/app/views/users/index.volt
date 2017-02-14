@@ -1,6 +1,10 @@
 <!--Affiche la liste des utilisateurs-->
-   {% if contenuMsg is defined %}
-    <div class="ui green message">{{contenuMsg}}</div>
+   {% if successUserAdd is defined %}
+    <div class="ui green message">{{successUserAdd}}</div>
+    {% endif %}
+
+    {% if erreurUserAdd is defined %}
+    <div class="ui red message">{{erreurUserAdd}}</div>
     {% endif %}
 
 <div class="ui container">

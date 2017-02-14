@@ -41,9 +41,16 @@ class UsersController extends ControllerBase
             $user->setPassword($_POST["password"]);
             $user->setIdrole($_POST["idrole"]);
     		if($user->save()==true){
-    			$this->view->setVar("contenuMsg", "Utilisateur ajouté");
+    			$this->view->setVar("successUserAdd", "Utilisateur ajouté");
     		}
-    		else $this->view->setVar("contenuMsg", "erreur");
+    		else{
+    			$msg = "Problème d'enregistrement \n";
+                foreach ($user->getMessages() as $message) {
+                    $msg .= $message . "\n";
+                }
+                $this->view->setVar("erreurUserAdd", $msg);
+
+    		}
 
     		//$this->view->setVar("contenuMsg", "Utilisateur ajouté");
         }
