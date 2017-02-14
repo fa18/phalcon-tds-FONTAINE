@@ -24,6 +24,13 @@ class UsersController extends ControllerBase
 	public function formAction($id=NULL){
 
 		$this->view->setVar("ListeDesRoles", Role::find());
+	
+
+	}
+
+	//Met à jour l'utilisateur posté dans la base de données, puis affiche un message
+	public function updateAction($id=NULL){
+
 
 		if(isset($_POST["firstname"], $_POST['lastname'], $_POST['login'], $_POST['email'], $_POST['idrole'])) {
             $user = new User();
@@ -33,14 +40,12 @@ class UsersController extends ControllerBase
             $user->setEmail($_POST["email"]);
             $user->setPassword($_POST["password"]);
             $user->setIdrole($_POST["idrole"]);
-    	$user->save();
+    		$user->save();
+
+    		//$this->view->setVar("contenuMsg", "Utilisateur ajouté");
         }
-		
+        $this->dispatcher->forward(["controller"=>"users","action"=>"index"]);
 
-	}
-
-	//Met à jour l'utilisateur posté dans la base de données, puis affiche un message
-	public function updateAction($id=NULL){
 
 	}
 

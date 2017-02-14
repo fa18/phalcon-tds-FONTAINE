@@ -1,7 +1,7 @@
 <!--Affiche la liste des utilisateurs-->
 <div class="ui container">
 </br>
-<?= $this->tag->linkTo(['users/form', '
+<?= $this->tag->linkTo(['users/form/update', '
 <button class=\'ui primary button\' >
  <i class=\'add user icon yellow\' ></i> Ajouter un nouvel utilisateur
 </button>']) ?>

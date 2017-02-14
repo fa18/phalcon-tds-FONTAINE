@@ -1,7 +1,7 @@
 <!--Affiche la liste des utilisateurs-->
 <div class="ui container">
 </br>
-{{link_to("users/form","
+{{link_to("users/form/update","
 <button class='ui primary button' >
  <i class='add user icon yellow' ></i> Ajouter un nouvel utilisateur
 </button>")}}
