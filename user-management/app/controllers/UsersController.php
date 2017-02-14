@@ -24,6 +24,17 @@ class UsersController extends ControllerBase
 	public function formAction($id=NULL){
 
 		$this->view->setVar("ListeDesRoles", Role::find());
+
+		if(isset($_POST["firstname"], $_POST['lastname'], $_POST['login'], $_POST['email'], $_POST['idrole'])) {
+            $user = new User();
+            $user->setFirstname($_POST["firstname"]);
+            $user->setLastname($_POST["lastname"]);
+            $user->setLogin($_POST["login"]);
+            $user->setEmail($_POST["email"]);
+            $user->setPassword($_POST["password"]);
+            $user->setIdrole($_POST["idrole"]);
+    	$user->save();
+        }
 		
 
 	}

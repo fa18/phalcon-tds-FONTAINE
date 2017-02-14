@@ -1,47 +1,56 @@
 <!-- Affiche le formulaire de modification/ajout d'un utilisateur-->
 </br>
-
-<form method="post">
 	<div class="ui container">
+	<div>
+	<?= $this->tag->linkTo(['users/index', '
+	<i class=\'reply icon\'> </i>Retour à la liste des utilisateurs']) ?>
+	</br><i class="info icon"></i>
+</div>
 
-	<div class="ui form">
-	  <div class="three fields">
-	    <div class="field">
-	      <label>Id</label>
-	      <input type="text" placeholder="Id">
-	    </div>
-	    <div class="field">
-	      <label>Login</label>
-	      <input type="text" placeholder="Login">
-	    </div>
-	    <div class="field">
-	      <label>Email</label>
-	      <input type="text" placeholder="Email">
-	    </div>
-	    <div class="field">
-	      <label>Password</label>
-	      <input type="text" placeholder="Email">
-	    </div>
-		</br>
-	  </div>
-	</div>
+	
 
-	<div class="ui form">
-	  <div class="three fields">
-	    <div class="field">
-	      <label>Nom</label>
-	      <input type="text" placeholder="Nom">
-	    </div>
-	    <div class="field">
-	      <label>Prenom</label>
-	      <input type="text" placeholder="Prenom">
-	    </div>
-	    <div class="field">
-	      <label>Idrole</label>
-	      <input type="text" placeholder="role du membre">
-	    </div></br>
-	  </div>
-	</div>
-
-	</div>
-</form>
+	<div class="ui equal width form">
+        <form method="post">
+            <div class="fields">
+                <div class="field">
+                    <label>Prénom</label>
+                    <input name="firstname" placeholder="First Name" type="text">
+                </div>
+                <div class="field">
+                    <label>Nom</label>
+                    <input name="lastname" placeholder="Last Name" type="text">
+                </div>
+            </div>
+            <div class="fields">
+                <div class="field required">
+                    <label>Login</label>
+                    <input name="login" placeholder="Login" type="text" required>
+                </div>
+                <div class="field required">
+                    <label>Mot de passe</label>
+                    <input name="password" placeholder="Email" type="password" required>
+                </div>
+            </div>
+            <div class="fields">
+                <div class="field required">
+                    <label>Email</label>
+                    <input name="email" placeholder="Email" type="email" required>
+                </div>
+            </div>
+            <div class="fields">
+                <div class="field">
+                    <label>Role</label>
+                    <select name="idrole" class="ui search dropdown">
+                        <?php foreach ($ListeDesRoles as $role) { ?>
+                        <option value="<?= $role->id ?>" selected><?= $role->name ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+            <div class="fields">
+                <input class="fluid positive ui button" type="submit" value="Ajouter">
+                <input class="fluid ui button" type="reset" value="Réinitialiser">
+            </div>
+        </form>
+    </div>
+</div>

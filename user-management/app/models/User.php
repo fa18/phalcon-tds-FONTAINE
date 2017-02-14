@@ -1,7 +1,7 @@
 <?php
 
 use Phalcon\Validation;
-use Phalcon\Mvc\Model\Validator\Email as EmailValidator;
+use Phalcon\Validation\Validator\Email as EmailValidator;
 
 class User extends \Phalcon\Mvc\Model
 {

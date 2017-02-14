@@ -2,10 +2,10 @@
 <div class="ui container">
 </br>
 <?= $this->tag->linkTo(['users/form', '
-<button class=\'ui primary button\'>
-  Ajouter un nouvel utilisateur
+<button class=\'ui primary button\' >
+ <i class=\'add user icon yellow\' ></i> Ajouter un nouvel utilisateur
 </button>']) ?>
-Rechercher : <div class="ui transparent left icon input">
+<div class="ui transparent left icon input">
   <input type="text" placeholder="Search...">
   <i class="search icon"></i>
 </div>
@@ -13,40 +13,47 @@ Rechercher : <div class="ui transparent left icon input">
 
 <table class="ui inverted table">
   <thead>
-    <tr><th>Id</th>
-    <th>Login</th>
-    <th>Prénom</th>
-    <th>Nom</th>
-    <th>Email</th>
-    <th>Role</th>
+    <tr><th><div class="ui checkbox "> <input type="checkbox" name="check"><label></label></div></th>
+    <?php foreach ($tabColonnes as $colonne) { ?>
+      <?php if ($champActuel == $colonne) { ?>
+        <?php if ($sensTri == 'asc') { ?>
+          <th class="sorted ascending" onclick="window.location.href='<?= $href ?>/<?= $colonne ?>/desc'"/>
+          <?php } else { ?>
+            <th class="sorted descending" onclick="window.location.href='<?= $href ?>'"/>
+          <?php } ?>
+        <?php } else { ?>
+          <th onclick="window.location.href='<?= $href ?>/<?= $colonne ?>/asc'"/>
+        <?php } ?>
+        <?= $colonne ?></th>
+    <?php } ?>
+
     <th>Action</th>
-  </tr></thead>
+    </tr>
+  </thead>
   <tbody>
     <?php foreach ($users as $user) { ?>
     <tr>
-    <td><?= $user->getId() ?></td>
+      <td><div class="ui checkbox "> <input type="checkbox" name="check"><label></label></div></td>
+      <td><?= $user->getId() ?></td>
       <td><?= $user->getLogin() ?></td>
       <td><?= $user->getFirstname() ?></td>
       <td><?= $user->getLastname() ?></td>
       <td><?= $user->getEmail() ?></td>
       <td><?= $user->getRole()->getName() ?></td>
       <td>
-      <div class="ui buttons">
-  	  <button class="ui button">Modifier</button>
-  	  <div class="or" data-text="ou"></div>
-  	  <button class="ui positive button">Supprimer</button>
-	  </div>
+        <?= $this->tag->linkto('users/form/update', '<i class=\'write icon\'></i>') ?>
+        <?= $this->tag->linkto('users/form/delete', '<i class=\'erase icon red\'></i>') ?>
       </td>
     </tr>
    <?php } ?>
   </tbody>
   <tfoot>
-    <tr><th colspan="3">
+    <tr><th colspan="8">
       <div class="ui right floated pagination menu">
         <a class="icon item">
           <i class="left chevron icon"></i>
         </a>
-        <a class="item">1</a>
+        <a class="item active">1</a>
         <a class="item">2</a>
         <a class="item">3</a>
         <a class="item">4</a>
