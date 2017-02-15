@@ -10,31 +10,31 @@
 	
 
 	<div class="ui equal width form">
-        <form method="post">
+        <form method="post" action="<?= $this->url->get('users/update') ?>">
             <div class="fields">
                 <div class="field">
                     <label>Prénom</label>
-                    <input name="firstname" placeholder="First Name" type="text">
+                    <input name="firstname" placeholder="First Name" type="text" value="<?= $user->getFirstname() ?>">
                 </div>
                 <div class="field">
                     <label>Nom</label>
-                    <input name="lastname" placeholder="Last Name" type="text">
+                    <input name="lastname" placeholder="Last Name" type="text" value="<?= $user->getLastname() ?>">
                 </div>
             </div>
             <div class="fields">
                 <div class="field required">
                     <label>Login</label>
-                    <input name="login" placeholder="Login" type="text" required>
+                    <input name="login" placeholder="Login" type="text" required value="<?= $user->getLogin() ?>">
                 </div>
                 <div class="field required">
                     <label>Mot de passe</label>
-                    <input name="password" placeholder="Email" type="password" required>
+                    <input name="password"  type="password" required value="<?= $user->getPassword() ?>">
                 </div>
             </div>
             <div class="fields">
                 <div class="field required">
                     <label>Email</label>
-                    <input name="email" placeholder="Email" type="email" required>
+                    <input name="email" placeholder="Email" type="email" required value="<?= $user->getEmail() ?>">
                 </div>
             </div>
             <div class="fields">
@@ -42,7 +42,7 @@
                     <label>Role</label>
                     <select name="idrole" class="ui search dropdown">
                         <?php foreach ($ListeDesRoles as $role) { ?>
-                        <option value="<?= $role->id ?>" selected><?= $role->name ?></option>
+                        <option value="1" selected><?= $role->name ?></option>
                         <?php } ?>
                     </select>
                 </div>

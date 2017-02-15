@@ -1,7 +1,15 @@
 <!--Affiche la liste des utilisateurs-->
+   <?php if (isset($successUserAdd)) { ?>
+    <div class="ui green message"><?= $successUserAdd ?></div>
+    <?php } ?>
+
+    <?php if (isset($erreurUserAdd)) { ?>
+    <div class="ui red message"><?= $erreurUserAdd ?></div>
+    <?php } ?>
+
 <div class="ui container">
 </br>
-<?= $this->tag->linkTo(['users/form', '
+<?= $this->tag->linkTo(['users/form/', '
 <button class=\'ui primary button\' >
  <i class=\'add user icon yellow\' ></i> Ajouter un nouvel utilisateur
 </button>']) ?>
@@ -41,8 +49,8 @@
       <td><?= $user->getEmail() ?></td>
       <td><?= $user->getRole()->getName() ?></td>
       <td>
-        <?= $this->tag->linkto('users/form/update', '<i class=\'write icon\'></i>') ?>
-        <?= $this->tag->linkto('users/form/delete', '<i class=\'erase icon red\'></i>') ?>
+        <?= $this->tag->linkto('users/form/' . $user->getId(), '<i class=\'write icon\'></i>') ?> 
+        <?= $this->tag->linkto('users/' . $user->getId(), '<i class=\'erase icon red\'></i>') ?>
       </td>
     </tr>
    <?php } ?>
