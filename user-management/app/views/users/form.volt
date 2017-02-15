@@ -10,6 +10,7 @@
 	
 
 	<div class="ui equal width form">
+        <form method="post" action="{{url('users/update/')}}"> <!-- ~idUser-->
             <div class="fields">
                 <div class="field">
                     <label>Prénom</label>
