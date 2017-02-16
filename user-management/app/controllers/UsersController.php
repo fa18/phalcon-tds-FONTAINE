@@ -68,8 +68,7 @@ class UsersController extends ControllerBase
     	}else{ // modification
     		if(isset($_POST['login'], $_POST['email'], $_POST['idrole'])) {
 	    		$user = User::findFirst($id);
-	    		$this->view->setVar("idUser", $user);
-	    		//$user->setId($user.getId());
+	    		
 	            $user->setFirstname($_POST["firstname"]);
 	            $user->setLastname($_POST["lastname"]);
 	            $user->setLogin($_POST["login"]);

@@ -10,7 +10,7 @@
 	
 
 	<div class="ui equal width form">
-        <form method="post" action="<?= $this->url->get('users/update/') ?>"> <!-- ~idUser-->
+        <form method="post" action="<?= $this->url->get('users/update/' . $user->getId()) ?>"> 
             <div class="fields">
                 <div class="field">
                     <label>Prénom</label>
