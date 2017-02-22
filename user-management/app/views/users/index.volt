@@ -78,11 +78,11 @@
       <div class="ui right floated pagination menu">
         
         
-        {{linkTo("users/index/"~pagePrec, "<i class='left chevron icon'></i></a>")}}
+        {{linkTo("users/index/"~pagePrec~slash~champ~slash~sens, "<i class='left chevron icon'></i></a>")}}
         
         <a class="item active">{{pageCourante}}</a>
         
-        {{linkTo("users/index/"~pageSuiv, "<i class='right chevron icon'></i></a>")}}
+        {{linkTo("users/index/"~pageSuiv~slash~champ~slash~sens, "<i class='right chevron icon'></i></a>")}}
         </a>
       </div>
     </th>

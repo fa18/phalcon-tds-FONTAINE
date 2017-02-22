@@ -39,11 +39,16 @@ class UsersController extends ControllerBase
         $pager = $paginator->getPaginate();
         $this->view->setVar("pager",$pager);
 
+        //pagination maison
         $this->view->setVar("pageCourante",$page);
         $pagePrec=$page-1;
         $pageSuiv=$page+1;
         $this->view->setVar("pagePrec",$pagePrec);
         $this->view->setVar("pageSuiv",$pageSuiv);
+        $this->view->setVar("champ",$sField);
+        $slash="/";
+        $this->view->setVar("slash",$slash);
+        $this->view->setVar("sens",$sens);
 
     }
 
