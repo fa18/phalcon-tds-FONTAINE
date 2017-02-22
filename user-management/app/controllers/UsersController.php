@@ -6,8 +6,18 @@ class UsersController extends ControllerBase
 	//Liste par défaut des utilisateurs, triés suivant sField dans l'ordre sens, en utilisant le filtre filter
     public function indexAction($page=1,$sField="firstname",$sens="asc",$filter=NULL)
     {
+    	 if (isset($_GET['filter'])){
+            $filter=$_GET['filter'];
+            unset($_GET['filter']);
+            $this->dispatcher->forward(["controller"=>"users","action"=>"index","params"=>[$page,$sField,$sens,$filter]]);
+        }
 
     	$users=User::query()
+    		    ->where("firstname like '%$filter%'")
+                ->orWhere("lastname like '%$filter%'")
+                ->orWhere("email like '%$filter%'")
+                ->orWhere("login like '%$filter%'")
+                ->orWhere("idrole like '%$filter%'")
     		->orderBy($sField." ".$sens)
     		->execute();
     	$this->view->setVar("users",$users);

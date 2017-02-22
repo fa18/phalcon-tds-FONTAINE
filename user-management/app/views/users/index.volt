@@ -13,13 +13,22 @@
 
 <div class="ui container">
 </br>
+
+{{link_to("users/index/1/id/desc","
+<button class='ui primary button' >
+ <i class='address book icon yellow'></i> Users
+</button>")}}
+
 {{link_to("users/form/","
 <button class='ui primary button' >
  <i class='add user icon yellow' ></i> Ajouter un nouvel utilisateur
 </button>")}}
+
 <div class="ui transparent left icon input">
-  <input type="text" placeholder="Search...">
-  <i class="search icon"></i>
+  <form method="get">
+    <input name="filter" type="text" placeholder="Search...">
+    <i class="search icon"></i>
+  </form>
 </div>
 
 
