@@ -7,6 +7,10 @@
     <div class="ui red message">{{erreurUserAdd}}</div>
     {% endif %}
 
+    {% if successUserDelete is defined %}
+    <div class="ui green message">{{successUserDelete}}</div>
+    {% endif %}
+
 <div class="ui container">
 </br>
 {{link_to("users/form/","
@@ -50,7 +54,7 @@
       <td>{{user.getRole().getName()}}</td>
       <td>
         {{linkTo("users/form/"~user.getId(), "<i class='write icon'></i>")}} 
-        {{linkTo("users/"~user.getId(), "<i class='erase icon red'></i>")}}
+        {{linkTo("users/delete/"~user.getId(), "<i class='erase icon red'></i>")}}
       </td>
     </tr>
    {% endfor %}

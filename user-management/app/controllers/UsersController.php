@@ -84,8 +84,12 @@ class UsersController extends ControllerBase
 	}
 
 	//Supprime l'utilisateur dont l'id est passé en paramètre
-	public function deleteAction(){
-
+	public function deleteAction($id=NULL){
+		$user = User::findFirst($id);
+		if($user->delete()){
+	    	$this->view->setVar("successUserDelete", "Utilisateur supprimé");
+	    }
+	    $this->dispatcher->forward(["controller"=>"users","action"=>"index"]);
 	}
 
 	//Gère le message de mise à jour et affiche la vue

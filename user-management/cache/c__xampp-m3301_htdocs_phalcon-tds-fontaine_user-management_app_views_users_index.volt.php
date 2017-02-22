@@ -7,6 +7,10 @@
     <div class="ui red message"><?= $erreurUserAdd ?></div>
     <?php } ?>
 
+    <?php if (isset($successUserDelete)) { ?>
+    <div class="ui green message"><?= $successUserDelete ?></div>
+    <?php } ?>
+
 <div class="ui container">
 </br>
 <?= $this->tag->linkTo(['users/form/', '
@@ -50,7 +54,7 @@
       <td><?= $user->getRole()->getName() ?></td>
       <td>
         <?= $this->tag->linkto('users/form/' . $user->getId(), '<i class=\'write icon\'></i>') ?> 
-        <?= $this->tag->linkto('users/' . $user->getId(), '<i class=\'erase icon red\'></i>') ?>
+        <?= $this->tag->linkto('users/delete/' . $user->getId(), '<i class=\'erase icon red\'></i>') ?>
       </td>
     </tr>
    <?php } ?>
