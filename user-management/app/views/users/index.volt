@@ -29,6 +29,7 @@
     {% for colonne in tabColonnes %}
       {% if champActuel == colonne %}
         {% if sensTri == "asc" %}
+
           <th class="sorted ascending" onclick="window.location.href='{{ href }}/{{colonne}}/desc'"/>
           {% else %}
             <th class="sorted descending" onclick="window.location.href='{{ href }}'"/>
@@ -36,7 +37,10 @@
         {% else %}
           <th onclick="window.location.href='{{ href }}/{{colonne}}/asc'"/>
         {% endif %}
-        {{colonne}}</th>
+        {{colonne}} 
+                 {% if sensTri == "asc" %} <i class="chevron circle down icon"></i>
+                 {% else %} <i class="chevron circle up icon"></i> {% endif %}
+          </th>
     {% endfor %}
 
     <th>Action</th>
@@ -46,7 +50,7 @@
     {% for user in users %}
     <tr>
       <td><div class="ui checkbox "> <input type="checkbox" name="check"><label></label></div></td>
-      <td>{{user.getId()}}</td>
+      <td>{{user.getId()}} </td>
       <td>{{user.getLogin()}}</td>
       <td>{{user.getFirstname()}}</td>
       <td>{{user.getLastname()}}</td>

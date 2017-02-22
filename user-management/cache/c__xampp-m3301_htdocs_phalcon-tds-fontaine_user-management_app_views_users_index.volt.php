@@ -29,6 +29,7 @@
     <?php foreach ($tabColonnes as $colonne) { ?>
       <?php if ($champActuel == $colonne) { ?>
         <?php if ($sensTri == 'asc') { ?>
+
           <th class="sorted ascending" onclick="window.location.href='<?= $href ?>/<?= $colonne ?>/desc'"/>
           <?php } else { ?>
             <th class="sorted descending" onclick="window.location.href='<?= $href ?>'"/>
@@ -36,7 +37,10 @@
         <?php } else { ?>
           <th onclick="window.location.href='<?= $href ?>/<?= $colonne ?>/asc'"/>
         <?php } ?>
-        <?= $colonne ?></th>
+        <?= $colonne ?> 
+                 <?php if ($sensTri == 'asc') { ?> <i class="chevron circle down icon"></i>
+                 <?php } else { ?> <i class="chevron circle up icon"></i> <?php } ?>
+          </th>
     <?php } ?>
 
     <th>Action</th>
@@ -46,7 +50,7 @@
     <?php foreach ($users as $user) { ?>
     <tr>
       <td><div class="ui checkbox "> <input type="checkbox" name="check"><label></label></div></td>
-      <td><?= $user->getId() ?></td>
+      <td><?= $user->getId() ?> </td>
       <td><?= $user->getLogin() ?></td>
       <td><?= $user->getFirstname() ?></td>
       <td><?= $user->getLastname() ?></td>
