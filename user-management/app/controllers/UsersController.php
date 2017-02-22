@@ -92,6 +92,13 @@ class UsersController extends ControllerBase
 	    $this->dispatcher->forward(["controller"=>"users","action"=>"index"]);
 	}
 
+	//affiche l'utilisateur
+	public function showAction($id=NULL){
+		$user = User::findFirst($id);
+		$this->view->setVar("user", $user);
+		$this->view->setVar("ListeDesRoles", Role::find());
+	}	
+
 	//Gère le message de mise à jour et affiche la vue
 	public function messageAction(){
 

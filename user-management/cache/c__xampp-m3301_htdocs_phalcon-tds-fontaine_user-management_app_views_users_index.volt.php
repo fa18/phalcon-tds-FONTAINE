@@ -57,6 +57,7 @@
       <td><?= $user->getEmail() ?></td>
       <td><?= $user->getRole()->getName() ?></td>
       <td>
+        <?= $this->tag->linkto('users/show/' . $user->getId(), '<i class=\'unhide icon yellow\'></i>') ?> 
         <?= $this->tag->linkto('users/form/' . $user->getId(), '<i class=\'write icon\'></i>') ?> 
         <?= $this->tag->linkto('users/delete/' . $user->getId(), '<i class=\'erase icon red\'></i>') ?>
       </td>

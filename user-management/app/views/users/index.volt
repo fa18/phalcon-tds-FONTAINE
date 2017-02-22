@@ -57,6 +57,7 @@
       <td>{{user.getEmail()}}</td>
       <td>{{user.getRole().getName()}}</td>
       <td>
+        {{linkTo("users/show/"~user.getId(), "<i class='unhide icon yellow'></i>")}} 
         {{linkTo("users/form/"~user.getId(), "<i class='write icon'></i>")}} 
         {{linkTo("users/delete/"~user.getId(), "<i class='erase icon red'></i>")}}
       </td>
