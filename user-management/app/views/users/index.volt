@@ -56,7 +56,7 @@
     </tr>
   </thead>
   <tbody>
-    {% for user in users %}
+    {% for user in pager.items %} <!-- in users -->
     <tr>
       <td><div class="ui checkbox "> <input type="checkbox" name="check"><label></label></div></td>
       <td>{{user.getId()}} </td>
@@ -76,15 +76,13 @@
   <tfoot>
     <tr><th colspan="8">
       <div class="ui right floated pagination menu">
-        <a class="icon item">
-          <i class="left chevron icon"></i>
-        </a>
-        <a class="item active">1</a>
-        <a class="item">2</a>
-        <a class="item">3</a>
-        <a class="item">4</a>
-        <a class="icon item">
-          <i class="right chevron icon"></i>
+        
+        
+        {{linkTo("users/index/"~pagePrec, "<i class='left chevron icon'></i></a>")}}
+        
+        <a class="item active">{{pageCourante}}</a>
+        
+        {{linkTo("users/index/"~pageSuiv, "<i class='right chevron icon'></i></a>")}}
         </a>
       </div>
     </th>

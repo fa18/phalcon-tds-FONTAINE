@@ -1,5 +1,5 @@
 <?php
-
+use Phalcon\Paginator\Adapter\Model as PaginatorModel;
 class UsersController extends ControllerBase
 {
 
@@ -26,6 +26,25 @@ class UsersController extends ControllerBase
 
     	 $this->view->setVar("tabColonnes",["id","login","firstname","lastname","email","idrole"]);
     	 $this->view->setVar("href","http://localhost/phalcon-tds-FONTAINE/user-management/users/index/1");
+
+    	 // Create a Model paginator,
+        $paginator = new PaginatorModel(
+            [
+                "data"  => $users,
+                "limit" => 15,
+                "page"  => $page,
+            ]
+        );
+		// Get the paginated results
+        $pager = $paginator->getPaginate();
+        $this->view->setVar("pager",$pager);
+
+        $this->view->setVar("pageCourante",$page);
+        $pagePrec=$page-1;
+        $pageSuiv=$page+1;
+        $this->view->setVar("pagePrec",$pagePrec);
+        $this->view->setVar("pageSuiv",$pageSuiv);
+
     }
 
    
