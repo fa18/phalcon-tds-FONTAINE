@@ -29,9 +29,7 @@
       <td>Adresse Email</td><td>{{user.getEmail()}}</td>
     </tr>
     <tr>
-      <td>Role</td><td> {% for role in ListeDesRoles %}
-                        {{role.name}}
-                        {% endfor %}</td>
+      <td>Role</td><td>{{user.getRole().getName()}}</td>
     </tr>
   </tbody>
 </table>
