@@ -34,8 +34,9 @@ class IndexController extends ControllerBase{
 	public function demoAction(){
 		$semantic = $this->jquery->semantic();
 		$bt=$semantic->htmlButton("btTest","Test");
+		$bt->setProperty("data-ajax","valeur importante");
 		$bt->addIcon("user");
-		$bt->getOnClick("index/reponse","#divReponse");
+		$bt->getOnClick("index/reponse","#divReponse",["attr"=>"data-ajax","ajaxTransition"=>"random"]);
 		/*echo $bt;
 		echo "<div id='divReponse'></div>";
 		echo $this->jquery->compile($this->view);*/
@@ -51,7 +52,7 @@ class IndexController extends ControllerBase{
 	public function reponseAction($id=""){
 		//echo "Reponse ok";
 		$semantic = $this->jquery->semantic();
-		$info=$semantic->htmlMessage("mess","Reponse ok".$id);
+		$info=$semantic->htmlMessage("mess","Reponse ok ".$id);
 		$info->setIcon("info circle");
 		echo $info;
 	}	
