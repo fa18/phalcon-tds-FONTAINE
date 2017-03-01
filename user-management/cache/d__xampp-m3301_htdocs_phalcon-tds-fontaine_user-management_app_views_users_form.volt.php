@@ -10,7 +10,7 @@
 	
 
 	<div class="ui equal width form">
-        <form method="post" action="<?= $this->url->get('users/update') ?>">
+        <form method="post" action="<?= $this->url->get('users/update/' . $user->getId()) ?>"> 
             <div class="fields">
                 <div class="field">
                     <label>Prénom</label>
@@ -42,7 +42,7 @@
                     <label>Role</label>
                     <select name="idrole" class="ui search dropdown">
                         <?php foreach ($ListeDesRoles as $role) { ?>
-                        <option value="1" selected><?= $role->name ?></option>
+                        <option value="<?= $role->id ?>" selected><?= $role->name ?></option>
                         <?php } ?>
                     </select>
                 </div>
