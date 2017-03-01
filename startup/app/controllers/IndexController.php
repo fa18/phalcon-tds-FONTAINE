@@ -35,7 +35,25 @@ class IndexController extends ControllerBase{
 		$semantic = $this->jquery->semantic();
 		$bt=$semantic->htmlButton("btTest","Test");
 		$bt->addIcon("user");
-		echo $bt;
+		$bt->getOnClick("index/reponse","#divReponse");
+		/*echo $bt;
+		echo "<div id='divReponse'></div>";
+		echo $this->jquery->compile($this->view);*/
+
+		//quand id : #
+		$menu=$semantic->htmlLabeledIconMenu("menu2",array(["star","Star"],["user","User"],["video","Video"]));
+		$menu->onClick("$('#divReponse').html($(this).attr('id'));");
+		$menu->getOnClick("index/reponse","#divReponse");
+
+		$this->jquery->compile($this->view);
+	}
+
+	public function reponseAction($id=""){
+		//echo "Reponse ok";
+		$semantic = $this->jquery->semantic();
+		$info=$semantic->htmlMessage("mess","Reponse ok".$id);
+		$info->setIcon("info circle");
+		echo $info;
 	}	
 }
 
