@@ -23,6 +23,9 @@ class TestController extends ControllerBase{
 		$this->jquery->compile($this->view);
 	}
 
+
+
+	//mouse over
 	public function changeCssAction(){
 		$button1=$this->semantic->htmlButton("buttonPage1","page 1");
 		$button2=$this->semantic->htmlButton("buttonPage2","page 2");
@@ -63,4 +66,29 @@ class TestController extends ControllerBase{
 	public function pageVideAction(){
 		echo "";
 	}
+
+
+	public function getCascadeAction(){
+			$semantic=$this->jquery->semantic();
+			$bt=$semantic->htmlButton("btLoad","Chargement");
+							//on recupere le contenu de page 3 et on le met dans le conteneur d'id	page3
+			$bt->getOnClick("test/page3","#page3");
+			echo $bt;
+			echo "<div id='page3' style='border-style: solid; border-color:red'></div>";
+			echo $this->jquery->compile($this->view);
+	}
+
+	public function page3Action(){
+        $this->view->disable();
+        echo "contenu de page 3";
+        
+        echo "<div id='page4' style='border-style: solid; border-color:green'>aa</div>";
+        $this->jquery->get("test/page4","#page4");
+        echo $this->jquery->compile();
+    }
+
+    public function page4Action(){
+        $this->view->disable();
+        echo "contenu de page 4";
+    }
 }	
