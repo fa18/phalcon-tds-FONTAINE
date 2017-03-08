@@ -32,5 +32,13 @@ class TestController extends ControllerBase{
 		$message=$this->semantic->htmlMessage("pageContent");
 
 		$this->jquery->compile($this->view);
+	}
+
+	public function page1Action(){
+		echo "Félicitation, vous êtes sur la page 1\n";
 	}	
+
+	public function page2Action(){
+		echo "Félicitation, vous êtes sur la page 2\n";
+	}
 }	
