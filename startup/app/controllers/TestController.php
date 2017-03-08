@@ -1,5 +1,6 @@
 <?php
-
+//@var Ajax\Semantic
+//@property Ajax\JsUtils $jquery
 class TestController extends ControllerBase{
 	protected $semantic;
 
@@ -26,7 +27,13 @@ class TestController extends ControllerBase{
 		$button1=$this->semantic->htmlButton("buttonPage1","page 1");
 		$button2=$this->semantic->htmlButton("buttonPage2","page 2");
 		
-		$button1->getOnClick("test/page1","#pageContent");
+		$button1->getOn("mouseover","test/page1","#pageContent");
+		$button2->getOn("mouseover","test/page2","#pageContent");
+
+		$button1->on("mouseout",$this->jquery->html("#pageContent",""));
+		$button2->getOn("mouseout","test/pageVide","#pageContent"); //version couteuse
+
+		$button1->getOnClick("test/page1","#pageContent"); //ne fonctionne plus avec mouseout
 		$button2->getOnClick("test/page2","#pageContent");
 
 		$message=$this->semantic->htmlMessage("pageContent");
@@ -40,5 +47,10 @@ class TestController extends ControllerBase{
 
 	public function page2Action(){
 		echo "Félicitation, vous êtes sur la page 2\n";
+	}
+
+	//pour version couteuse
+	public function pageVideAction(){
+		echo "";
 	}
 }	
