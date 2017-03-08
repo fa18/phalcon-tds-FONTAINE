@@ -30,8 +30,8 @@ class TestController extends ControllerBase{
 		$button1->getOn("mouseover","test/page1Desc","#pageDescA");
 		$button2->getOn("mouseover","test/page2Desc","#pageDescA");
 
-		$button1->on("mouseout",$this->jquery->html("#pageDesc",""));
-		$button2->getOn("mouseout","test/pageVide","#pageDesc"); //version couteuse
+		$button1->on("mouseout",$this->jquery->html("#pageDescA",""));
+		$button2->getOn("mouseout","test/pageVide","#pageDescA"); //version couteuse
 
 		$button1->getOnClick("test/page1","#pageContent"); 
 		$button1->getOnClick("test/page1Desc","#pageDesc");
