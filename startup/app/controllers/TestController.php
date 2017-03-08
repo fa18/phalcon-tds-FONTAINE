@@ -27,11 +27,11 @@ class TestController extends ControllerBase{
 		$button1=$this->semantic->htmlButton("buttonPage1","page 1");
 		$button2=$this->semantic->htmlButton("buttonPage2","page 2");
 		
-		$button1->getOn("mouseover","test/page1","#pageContent");
-		$button2->getOn("mouseover","test/page2","#pageContent");
+		$button1->getOn("mouseover","test/page1Desc","#pageDesc");
+		$button2->getOn("mouseover","test/page2Desc","#pageDesc");
 
-		$button1->on("mouseout",$this->jquery->html("#pageContent",""));
-		$button2->getOn("mouseout","test/pageVide","#pageContent"); //version couteuse
+		$button1->on("mouseout",$this->jquery->html("#pageDesc",""));
+		$button2->getOn("mouseout","test/pageVide","#pageDesc"); //version couteuse
 
 		$button1->getOnClick("test/page1","#pageContent"); //ne fonctionne plus avec mouseout
 		$button2->getOnClick("test/page2","#pageContent");
@@ -45,8 +45,16 @@ class TestController extends ControllerBase{
 		echo "Félicitation, vous êtes sur la page 1\n";
 	}	
 
+	public function page1DescAction(){
+		echo "description de la page 1\n";
+	}
+
 	public function page2Action(){
 		echo "Félicitation, vous êtes sur la page 2\n";
+	}
+
+	public function page2DescAction(){
+		echo "description de la page 2\n";
 	}
 
 	//pour version couteuse
