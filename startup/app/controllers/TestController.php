@@ -91,4 +91,25 @@ class TestController extends ControllerBase{
         $this->view->disable();
         echo "contenu de page 4";
     }
+
+    public function postFormAction(){
+    	//collections form
+		$form=$this->semantic->htmlForm("formUser");
+        $form->addInput("nom","Nom")->setName("nom");
+        $form->addInput("email","Email")->setName("email");
+        $form->addSubmit("btValider","Valider");
+        $form->submitOnClick("btValider","test/postReponse","#divReponse");
+
+		//$this->jquery->get("test/postReponse","#postResponse");
+
+		echo $form->compile($this->jquery);
+		echo $this->jquery->compile($this->view);
+		echo "<div id='divReponse'></div>";
+
+    }
+
+    public function postReponseAction(){
+    	$this->view->disable();
+    	echo "nom : ".$_POST['nom']."</br>"."email : ".$_POST['email']."</br>";
+    }
 }	
