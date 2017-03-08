@@ -27,14 +27,16 @@ class TestController extends ControllerBase{
 		$button1=$this->semantic->htmlButton("buttonPage1","page 1");
 		$button2=$this->semantic->htmlButton("buttonPage2","page 2");
 		
-		$button1->getOn("mouseover","test/page1Desc","#pageDesc");
-		$button2->getOn("mouseover","test/page2Desc","#pageDesc");
+		$button1->getOn("mouseover","test/page1Desc","#pageDescA");
+		$button2->getOn("mouseover","test/page2Desc","#pageDescA");
 
 		$button1->on("mouseout",$this->jquery->html("#pageDesc",""));
 		$button2->getOn("mouseout","test/pageVide","#pageDesc"); //version couteuse
 
-		$button1->getOnClick("test/page1","#pageContent"); //ne fonctionne plus avec mouseout
+		$button1->getOnClick("test/page1","#pageContent"); 
+		$button1->getOnClick("test/page1Desc","#pageDesc");
 		$button2->getOnClick("test/page2","#pageContent");
+		$button2->getOnClick("test/page2Desc","#pageDesc");
 
 		$message=$this->semantic->htmlMessage("pageContent");
 
@@ -42,7 +44,7 @@ class TestController extends ControllerBase{
 	}
 
 	public function page1Action(){
-		echo "Félicitation, vous êtes sur la page 1\n";
+		echo "Titre page 1\n";
 	}	
 
 	public function page1DescAction(){
@@ -50,7 +52,7 @@ class TestController extends ControllerBase{
 	}
 
 	public function page2Action(){
-		echo "Félicitation, vous êtes sur la page 2\n";
+		echo "Titre de la page 2\n";
 	}
 
 	public function page2DescAction(){
