@@ -7,13 +7,13 @@ class productsController extends ControllerBase{
 	public function indexAction(){
 		$semantic = $this->jquery->semantic();
 			//nom modele
-		$client=Products::findFirst();
-		$de=$semantic->dataElement("de4",$client);
-		$de->setFields(["name","price"]);
-		$de->setCaptions(["Nom : ","Prix :"]);
-		echo $de;
 
-
+		$products=Products::find();
+		$lv=$semantic->dataTable("lv1-1","Products",$products);
+		$lv->setFields(["name","price"]);
+		$lv->setCaptions(["Nom : ","Prix :"]);
+		echo $lv;
+	
 
 	}
 
