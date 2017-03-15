@@ -12,9 +12,9 @@ class productsController extends ControllerBase{
 		$lv=$semantic->dataTable("lv1-1","Products",$products);
 		$lv->setFields(["name","price"]);
 		$lv->setCaptions(["Nom : ","Prix :"]);
-		echo $lv;
+		//echo $lv;
 	
-
+		$this->jquery->compile($this->view);
 	}
 
 }
