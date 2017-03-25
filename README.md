@@ -4,13 +4,13 @@
 cours dispensés par M. Heron
 
 ## Statistiques générales :
-  * Nombre de commit pour le projet Angular : 
-  * Nombre de commit moyen par séance :
-  * Nombre de commit en dehors des jours de cours : 
-    (Au vu des dernières semaines et du travail à fournir dans les autres matières, il y'a eu moins de commit régulier)
-  * Ratio ajout/suprression de code : 
+  * Nombre de commit pour le projet Phalcon : 61
+  * Nombre de commit moyen par séance : 4 
+  * Nombre de commit en dehors des jours de cours : 11
+    (Au vu des partiels de fin de semestre il y'a eu moins de commit régulier en fin de semestre)
+  * Ratio ajout/suprression de code : 99%
   
-## TD0 - Réalisé à 100%
+## TD0 - (s4-userManagement-0) Réalisé à 100%
 ### User management - no framework : Fonctionnalités réalisées :
 #### Rôles :
   * Affichage d'un rôle ✓
